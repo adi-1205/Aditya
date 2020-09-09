@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int palindrome(unsigned int k)
+{
+
+    int n;
+    unsigned int rev=0,org=k;
+    while(k){
+    n=k%10;
+    k=k/10;
+    rev=rev*10+n;
+    }
+    if(rev==org)
+        return 1;
+    else    
+        return 0;        
+}
+
+int main() {
+
+	int t;
+	unsigned int k;
+
+	scanf("%d\n",&t);
+	
+	while(t--){
+		scanf("%u\n",&k);
+		if(palindrome(k))
+		    k++;
+		if(k<10)
+		    k=10;
+		while(palindrome(k)!=1)
+		    k++;
+		    
+		    printf("%u\n",k);
+	}
+
+	return 0;
+}
